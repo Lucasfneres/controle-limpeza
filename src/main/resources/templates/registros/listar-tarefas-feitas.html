@@ -1,0 +1,46 @@
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"
+>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<head>
+    <title>Registro GTBR limpeza</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Tarefas feitas na semana</h1>
+    <a href="/registro/formulario" class="button">Novo registro</a>
+    <a href="/pdf/generate" class="button">Gerar PDF</a>
+    <table>
+        <thead>
+        <tr>
+            <th>NOME</th>
+            <th>DIA</th>
+            <th>TAREFA</th>
+            <th>AÇÕES</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="registro : ${registros}">
+            <td th:text="${registro.nome}"></td>
+            <td th:text="${registro.data}"></td>
+            <td th:text="${registro.tarefa}"></td>
+            <td>
+
+                <form action="/registro" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="id" th:value="${registro.id}">
+                    <input type="submit" value="Excluir">
+
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+</body>
+</html>

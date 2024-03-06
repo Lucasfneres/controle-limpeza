@@ -1,0 +1,56 @@
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"
+>
+<head>
+    <title>Registro GTBR limpeza</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Registro semanal de limpeza</h1>
+    <form method="post" action="/registro">
+        <div>
+            <label>Nome:</label>
+            <select id="nome" name="nome" required>
+                <option selected disabled value="">Selecione seu nome</option>
+                <option>Gabriel</option>
+                <option>Thalles</option>
+                <option>Italo</option>
+                <option>Lucas</option>
+                <option>Vitor</option>
+            </select>
+
+        </div>
+        <br/>
+        <div>
+            <label>Dia:</label>
+            <select id="data" name="data" required>
+                <option selected disabled value="">Selecione o dia da semana</option>
+                <option>Segunda-Feira</option>
+                <option>Terça-Feira</option>
+                <option>Quarta-Feira</option>
+                <option>Quinta-Feira</option>
+                <option>Sexta-Feira</option>
+            </select>
+        </div>
+        <br/>
+        <div>
+            <label>Tarefa:</label>
+            <select id="tarefa" name="tarefa" required>
+                <option selected disabled value="">Selecione a tarefa realizada</option>
+                <option>Limpeza banheiro interno</option>
+                <option>Limpeza banheiro externo</option>
+                <option>Limpeza quintal</option>
+                <option>Limpeza cozinha</option>
+                <option>Limpeza louça</option>
+                <option>Retirar o lixo</option>
+            </select>
+        </div>
+        <br/>
+        <input type="submit" value="Registrar">
+    </form>
+        <a href="/registro" class="button">Registros da semana</a>
+</div>
+</body>
+</html>
